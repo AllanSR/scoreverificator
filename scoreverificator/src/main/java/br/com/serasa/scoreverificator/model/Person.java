@@ -1,21 +1,39 @@
 package br.com.serasa.scoreverificator.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="PERSON")
 public class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
 	
+	@Column(name = "INCLUSION_DATE", nullable= false)
 	private String inclusionDate;
 	
+	@Column(name = "PERSON_NAME", nullable= false)
 	private String name;
 	
+	@Column(name = "PHONE", nullable= false)
 	private String phone;
 	
+	@Column(name = "PERSON_AGE", nullable= false)
 	private String age;
 	
+	@Column(name = "CITY", nullable= false)
 	private String city;
 	
+	@Column(name = "STATE", nullable= false)
 	private String state;
 	
+	@Column(name = "REGION", nullable= false)
 	private String region;
 
 	public String getId() {
