@@ -1,9 +1,10 @@
 package br.com.serasa.scoreverificator.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.serasa.scoreverificator.model.Affinity;
@@ -30,12 +31,15 @@ public class ScoreVerificatorServiceImpl implements ScoreVerificatorService{
 		
 	}
 	
-	private List<Score> retrieveListScore(){
-		List<Score> scoreList = new ArrayList<>();
-	
-		return scoreList;
+	public ResponseEntity<Object> persistPerson(Person person) {
+		if (personIsInvalid(person))
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+		
+		
+		return new ResponseEntity<Object>(HttpStatus.CREATED);
 	}
 	
+		
 	private String checkScoreStatus(long score) {
 		if (score > 1000 || score < 0) 
 			return "Valor de Score incompativel, favor consultar o cadastro!";
@@ -45,31 +49,32 @@ public class ScoreVerificatorServiceImpl implements ScoreVerificatorService{
 
 	@Override
 	public List<Person> retrieveAllPerson() {
-		// TODO Auto-generated method stub
-		return null;
+		return personRepository.findAll();
 	}
 
 	@Override
 	public Person retrievePersonById(Long id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Person insertPerson(Person person) {
-		// TODO Auto-generated method stub
-		return null;
+		return personRepository.save(person);
 	}
 
 	@Override
 	public Affinity insertAffinity(Affinity affinity) {
-		// TODO Auto-generated method stub
-		return null;
+		return affinityRepository.save(affinity);
 	}
 
 	@Override
 	public Score insertScore(Score score) {
-		// TODO Auto-generated method stub
-		return null;
+		return scoreRepository.save(score);
+	}
+	
+	private boolean personIsInvalid(Person person) {
+		return person == null || person.getAge() == null || person.getCity() == null ||
+			person.getName() == null || person.getPhone() == null;	
+				
 	}
 }

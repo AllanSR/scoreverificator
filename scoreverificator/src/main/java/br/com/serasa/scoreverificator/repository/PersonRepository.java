@@ -1,8 +1,11 @@
 package br.com.serasa.scoreverificator.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import br.com.serasa.scoreverificator.model.Person;
+
 @Repository
-public class PersonRepository {
+public interface PersonRepository extends JpaRepository<Person, Long>{
 
 }
