@@ -34,17 +34,18 @@ public class ScoreVerificatorServiceImpl implements ScoreVerificatorService{
 	public ResponseEntity<Object> persistPerson(Person person) {
 		if (personIsInvalid(person))
 			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
-		
-		
+		try {
+			insertPerson(person);			
+		}
+		catch(Exception e) {
+			return new ResponseEntity<Object>(HttpStatus.UNPROCESSABLE_ENTITY);
+		}
 		return new ResponseEntity<Object>(HttpStatus.CREATED);
 	}
 	
 		
-	private String checkScoreStatus(long score) {
-		if (score > 1000 || score < 0) 
-			return "Valor de Score incompativel, favor consultar o cadastro!";
-			
-		return "";
+	private boolean isInvalidScoreStatus(long score) {
+		return score > 1000 || score < 0;
 	}
 
 	@Override
@@ -73,8 +74,10 @@ public class ScoreVerificatorServiceImpl implements ScoreVerificatorService{
 	}
 	
 	private boolean personIsInvalid(Person person) {
-		return person == null || person.getAge() == null || person.getCity() == null ||
-			person.getName() == null || person.getPhone() == null;	
+		return person == null || person.getAge() == null || 
+				person.getCity() == null || person.getName() == null || 
+				 person.getPhone() == null || 
+				  isInvalidScoreStatus(person.getScore());	
 				
 	}
 }

@@ -11,7 +11,7 @@ import br.com.serasa.scoreverificator.model.Person;
 import br.com.serasa.scoreverificator.model.Score;
 
 @Controller
-public class ScoreController {
+public class ScoreVerificatorController {
 
 	@PostMapping(value = "/pessoa")
     public ResponseEntity<Object> createPerson(Person person) {

@@ -35,6 +35,9 @@ public class Person {
 	
 	@Column(name = "REGION", nullable= false)
 	private String region;
+	
+	@Column(name = "SCORE", nullable = false)
+	private long score;
 
 	public String getId() {
 		return id;
@@ -99,5 +102,12 @@ public class Person {
 	public void setRegion(String region) {
 		this.region = region;
 	}
-	
+
+	public long getScore() {
+		return score;
+	}
+
+	public void setScore(long score) {
+		this.score = score;
+	}
 }
