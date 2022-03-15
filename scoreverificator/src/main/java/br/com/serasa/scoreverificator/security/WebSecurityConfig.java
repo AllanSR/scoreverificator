@@ -21,6 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/home").permitAll()
 			.antMatchers(HttpMethod.POST, "/login").permitAll()
 			.antMatchers("/h2/**").permitAll()
+			
 			.anyRequest().authenticated()
 			.and()
 			
@@ -29,6 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			
 			.addFilterBefore(new JWTAuthenticationFilter(),
 	                UsernamePasswordAuthenticationFilter.class);
+	    httpSecurity.headers().frameOptions().disable();
 	}
 	
 	@Override

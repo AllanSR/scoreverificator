@@ -1,5 +1,7 @@
 package br.com.serasa.scoreverificator.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,26 +17,26 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
 	
-	@Column(name = "INCLUSION_DATE", nullable= false)
-	private String inclusionDate;
+	@Column(name = "DATA_INCLUSAO", nullable= false)
+	private Date dataInclusao;
 	
-	@Column(name = "PERSON_NAME", nullable= false)
-	private String name;
+	@Column(name = "NOME", nullable= false)
+	private String nome;
 	
-	@Column(name = "PHONE", nullable= false)
-	private String phone;
+	@Column(name = "TELEFONE", nullable= false)
+	private String telefone;
 	
-	@Column(name = "PERSON_AGE", nullable= false)
-	private String age;
+	@Column(name = "IDADE", nullable= false)
+	private long idade;
 	
-	@Column(name = "CITY", nullable= false)
-	private String city;
+	@Column(name = "CIDADE", nullable= false)
+	private String cidade;
 	
-	@Column(name = "STATE", nullable= false)
-	private String state;
+	@Column(name = "ESTADO", nullable= false)
+	private String estado;
 	
-	@Column(name = "REGION", nullable= false)
-	private String region;
+	@Column(name = "REGIAO", nullable= false)
+	private String regiao;
 	
 	@Column(name = "SCORE", nullable = false)
 	private long score;
@@ -47,60 +49,60 @@ public class Person {
 		this.id = id;
 	}
 
-	public String getInclusionDate() {
-		return inclusionDate;
+	public Date getDataInclusao() {
+		return dataInclusao;
 	}
 
-	public void setInclusionDate(String inclusionDate) {
-		this.inclusionDate = inclusionDate;
+	public void setDataInclusao(Date dataInclusao) {
+		this.dataInclusao = dataInclusao;
 	}
 
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getTelefone() {
+		return telefone;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
 
-	public String getAge() {
-		return age;
+	public long getIdade() {
+		return idade;
 	}
 
-	public void setAge(String age) {
-		this.age = age;
+	public void setIdade(long idade) {
+		this.idade = idade;
 	}
 
-	public String getCity() {
-		return city;
+	public String getCidade() {
+		return cidade;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
 	}
 
-	public String getState() {
-		return state;
+	public String getEstado() {
+		return estado;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
-	public String getRegion() {
-		return region;
+	public String getRegiao() {
+		return regiao;
 	}
 
-	public void setRegion(String region) {
-		this.region = region;
+	public void setRegiao(String regiao) {
+		this.regiao = regiao;
 	}
 
 	public long getScore() {
