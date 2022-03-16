@@ -26,12 +26,12 @@ public class ScoreVerificatorController {
 
 	@PostMapping(value = "/affinity")
     public ResponseEntity<Object> createAffinity(Affinity affinity) {
-          return new ResponseEntity<Object>(HttpStatus.CREATED);
+          return service.persistAffinity(affinity);
     }
 	
 	@PostMapping(value = "/score")
     public ResponseEntity<Object> createScore(Score score) {
-          return new ResponseEntity<Object>(HttpStatus.CREATED);
+          return service.persistScore(score);
     }
 	
 	@GetMapping(value = "/pessoa/{id}")
@@ -41,6 +41,6 @@ public class ScoreVerificatorController {
 	
 	@GetMapping(value = "/pessoa")
     public ResponseEntity<Object> getAllPerson() {
-          return new ResponseEntity<Object>(HttpStatus.OK);
+          return service.getAllPerson();
     }
 }

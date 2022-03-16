@@ -36,4 +36,13 @@ public class Affinity {
 	public void setStates(String states) {
 		this.states = states;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 }
